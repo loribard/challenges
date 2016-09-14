@@ -298,7 +298,31 @@ print recursive_index("you",["hey","there","you"],0)
 
 
 
+"""Given a node in a linked list, remove it.
 
+Remove this node from a linked list. Note that we do not have access to
+any other nodes of the linked list, like the head or the tail.
+
+Does not return anything; changes list in place.
+
+For example::
+
+    >>> ll = Node(1, Node(2, Node(3, Node(4, Node(5)))))  # 1->2->3->4->5
+    >>> three_node = ll.next.next
+    >>> remove_node(three_node)
+    >>> ll.as_string()
+    '1245'
+
+It's possible to remove the first node::
+
+    >>> ll = Node(1, Node(2, Node(3, Node(4, Node(5)))))  # 1->2->3->4->5
+    >>> one_node = ll
+    >>> remove_node(one_node)
+    >>> ll.as_string()
+    '2345'
+
+This will never be asked to remove the tail node.
+"""
 
 class Node(object):
     """Class in a linked list."""
@@ -325,11 +349,6 @@ class Node(object):
             n = n.next
 
         return "".join(out)
-        
-four_node = Node(4)
-three_node = Node(3, four_node)
-two_node = Node(2, three_node)
-one_node = Node(1, two_node)
 
 
 def remove_node(node):
@@ -340,6 +359,37 @@ def remove_node(node):
 
     Does not return anything; changes list in place.
     """
+
+    
+
+    if not node.next:
+        raise ValueError("Cannot remove tail node")
+
+    node.data = node.next.data
+    node.next = node.next.next
+print ""
+
+ll = Node(1, Node(2, Node(3, Node(4, Node(5)))))  # 1->2->3->4->5
+print ll.as_string()
+three_node = ll.next.next
+remove_node(three_node)
+print ll.as_string()
+   
+
+print ""
+ll = Node(1, Node(2, Node(3, Node(4, Node(5)))))  # 1->2->3->4->5
+print ll.as_string()
+one_node = ll
+remove_node(one_node)
+print ll.as_string()
+
+
+
+    
+
+
+
+
 
             
 
