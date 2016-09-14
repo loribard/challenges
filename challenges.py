@@ -196,6 +196,164 @@ print pig_latin_word('give me an apple')
 print ""
 
 
+def primes(count):
+    """
+    >>> primes(1)
+    [2]
+
+    >>> primes(5)
+    [2, 3, 5, 7, 11]
+    """
+    num = 3
+    prime_number = [2]
+
+    while len(prime_number) < count:
+
+        for i in range(0,len(prime_number)):
+            print "i", i, "prime number", prime_number[i], "num", num, prime_number
+            if num % prime_number[i] == 0:
+                print "num", num,"breaking",prime_number[i]
+                num += 1
+                break
+            elif i == len(prime_number) - 1:
+                prime_number.append(num)
+                num += 1
+
+
+    print prime_number
+    return prime_number
+
+primes(1)  
+primes(2)  
+primes(4) 
+primes(7)   
+
+def print_digits(num):
+    """Given an integer, print each digit in reverse order, starting with the ones place.
+
+    For example, if you were given 1 you should simply print 1, if given 314 you should print 4, 1, 3, and if given 12 you should print 2, 1:
+
+    >>> `print_digits(1)`:cmd:
+    1
+    >>> `print_digits(314)`:cmd:
+    4
+    1
+    3
+    >>> `print_digits(12)`:cmd:
+    2
+    1
+    """
+
+    num = list(str(num))
+
+    for i in range(0,len(num)):
+        print num.pop()
+
+ 
+
+print " "
+print_digits(1)
+print_digits(314)
+print_digits(12)
+
+def print_recursively(lst):
+    """Print items from a list using recursion.
+
+    For example, if you have a list of [1, 2, 3]:
+
+    >>> print_recursively([1, 2, 3])
+    1
+    2
+    3
+    """
+    if lst:
+        print lst.pop(0)
+        print_recursively(lst)
+
+print ""
+print_recursively([1,2,3])
+
+
+def recursive_index(needle, haystack, start_at=None):
+    """Given list (haystack), return index (0-based) of needle in the list.
+
+    Return None if needle is not in haystack.
+
+    Do this with recursion. You MAY NOT USE A `for` OR `while` LOOP.
+    """
+    if start_at == len(haystack):
+        return None
+
+    if haystack[start_at] == needle:
+        return start_at
+
+    return recursive_index(needle,haystack,start_at + 1)
+   
+    
+
+
+print ""
+print recursive_index("I",["hey","there","you"],0)
+print recursive_index("you",["hey","there","you"],0)
+
+
+
+
+
+class Node(object):
+    """Class in a linked list."""
+
+    def __init__(self, data, next=None):
+        self.data = data
+        self.next = next
+
+    def as_string(self):
+        """Represent data for this node and it's successors as a string.
+
+        >>> Node(3).as_string()
+        '3'
+
+        >>> Node(3, Node(2, Node(1))).as_string()
+        '321'
+        """
+
+        out = []
+        n = self
+
+        while n:
+            out.append(str(n.data))
+            n = n.next
+
+        return "".join(out)
+        
+four_node = Node(4)
+three_node = Node(3, four_node)
+two_node = Node(2, three_node)
+one_node = Node(1, two_node)
+
+
+def remove_node(node):
+    """Given a node in a linked list, remove it.
+
+    Remove this node from a linked list. Note that we do not have access to
+    any other nodes of the linked list, like the head or the tail.
+
+    Does not return anything; changes list in place.
+    """
+
+            
+
+
+
+
+
+          
+
+
+
+
+
+
 
 
 
