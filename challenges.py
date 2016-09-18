@@ -298,94 +298,235 @@ print recursive_index("you",["hey","there","you"],0)
 
 
 
-"""Given a node in a linked list, remove it.
+# """Given a node in a linked list, remove it.
 
-Remove this node from a linked list. Note that we do not have access to
-any other nodes of the linked list, like the head or the tail.
+# Remove this node from a linked list. Note that we do not have access to
+# any other nodes of the linked list, like the head or the tail.
 
-Does not return anything; changes list in place.
+# Does not return anything; changes list in place.
 
-For example::
+# For example::
 
-    >>> ll = Node(1, Node(2, Node(3, Node(4, Node(5)))))  # 1->2->3->4->5
-    >>> three_node = ll.next.next
-    >>> remove_node(three_node)
-    >>> ll.as_string()
-    '1245'
+#     >>> ll = Node(1, Node(2, Node(3, Node(4, Node(5)))))  # 1->2->3->4->5
+#     >>> three_node = ll.next.next
+#     >>> remove_node(three_node)
+#     >>> ll.as_string()
+#     '1245'
 
-It's possible to remove the first node::
+# It's possible to remove the first node::
 
-    >>> ll = Node(1, Node(2, Node(3, Node(4, Node(5)))))  # 1->2->3->4->5
-    >>> one_node = ll
-    >>> remove_node(one_node)
-    >>> ll.as_string()
-    '2345'
+#     >>> ll = Node(1, Node(2, Node(3, Node(4, Node(5)))))  # 1->2->3->4->5
+#     >>> one_node = ll
+#     >>> remove_node(one_node)
+#     >>> ll.as_string()
+#     '2345'
 
-This will never be asked to remove the tail node.
-"""
+# This will never be asked to remove the tail node.
+# """
 
-class Node(object):
-    """Class in a linked list."""
+# class Node(object):
+#     """Class in a linked list."""
 
-    def __init__(self, data, next=None):
-        self.data = data
-        self.next = next
+#     def __init__(self, data, next=None):
+#         self.data = data
+#         self.next = next
 
-    def as_string(self):
-        """Represent data for this node and it's successors as a string.
+#     def as_string(self):
+#         """Represent data for this node and it's successors as a string.
 
-        >>> Node(3).as_string()
-        '3'
+#         >>> Node(3).as_string()
+#         '3'
 
-        >>> Node(3, Node(2, Node(1))).as_string()
-        '321'
-        """
+#         >>> Node(3, Node(2, Node(1))).as_string()
+#         '321'
+#         """
 
-        out = []
-        n = self
+#         out = []
+#         n = self
 
-        while n:
-            out.append(str(n.data))
-            n = n.next
+#         while n:
+#             out.append(str(n.data))
+#             n = n.next
 
-        return "".join(out)
+#         return "".join(out)
 
 
-def remove_node(node):
-    """Given a node in a linked list, remove it.
+# def remove_node(node):
+#     """Given a node in a linked list, remove it.
 
-    Remove this node from a linked list. Note that we do not have access to
-    any other nodes of the linked list, like the head or the tail.
+#     Remove this node from a linked list. Note that we do not have access to
+#     any other nodes of the linked list, like the head or the tail.
 
-    Does not return anything; changes list in place.
-    """
+#     Does not return anything; changes list in place.
+#     """
 
     
 
-    if not node.next:
-        raise ValueError("Cannot remove tail node")
+#     if not node.next:
+#         raise ValueError("Cannot remove tail node")
 
-    node.data = node.next.data
-    node.next = node.next.next
-print ""
+#     node.data = node.next.data
+#     node.next = node.next.next
 
-ll = Node(1, Node(2, Node(3, Node(4, Node(5)))))  # 1->2->3->4->5
-print ll.as_string()
-three_node = ll.next.next
-remove_node(three_node)
-print ll.as_string()
+# print ""
+
+# ll = Node(1, Node(2, Node(3, Node(4, Node(5)))))  # 1->2->3->4->5
+# print ll.as_string()
+# three_node = ll.next.next
+# remove_node(three_node)
+# print ll.as_string()
    
 
-print ""
-ll = Node(1, Node(2, Node(3, Node(4, Node(5)))))  # 1->2->3->4->5
-print ll.as_string()
-one_node = ll
-remove_node(one_node)
-print ll.as_string()
+# print ""
+# ll = Node(1, Node(2, Node(3, Node(4, Node(5)))))  # 1->2->3->4->5
+# print ll.as_string()
+# one_node = ll
+# remove_node(one_node)
+# print ll.as_string()
+# print ""
+
+# class Node(object):
+#     """Class in a linked list."""
+
+#     def __init__(self, data, next=None):
+#         self.data = data
+#         self.next = next
+
+#     def as_string(self):
+#         """Represent data for this node and it's successors as a string.
+
+#         >>> Node(3).as_string()
+#         '3'
+
+#         >>> Node(3, Node(2, Node(1))).as_string()
+#         '321'
+#         """
+
+#         out = []
+#         n = self
+
+#         while n:
+#             out.append(str(n.data))
+#             n = n.next
+
+#         return "".join(out)
 
 
+# def reverse_linked_list(head):
+#     """Given LL head node, return head node of new, reversed linked list.
 
-    
+#     >>> ll = Node(1, Node(2, Node(3)))
+#     >>> reverse_linked_list(ll).as_string()
+#     '321'
+#     """
+
+#     list_of_nodes = []
+#     for 
+
+
+# ll = Node(1, Node(2, Node(3)))
+# new_ll = reverse_linked_list(ll)
+# new_ll.as_string()   #321
+print "'"
+
+#Tower of Hanoi
+
+
+def tower(n):
+
+    source = "a"
+    spare = "b"
+    dest = "c"
+    move_disc(n,source,dest,spare)
+
+def move_disc(n,source,dest,spare):
+
+    if n ==1:
+        print source,spare
+
+    else:
+        move_disc(n-1,source,spare,dest)
+        move_disc(1,source,dest,spare)
+        move_disc(n-1,spare,dest,source)
+
+
+print tower(3)
+
+
+# LINKED LISTS
+ 
+# def InsertNth(head, data, position):
+   
+   
+#     if head is None or position == 0:
+#         new_node = Node(data)
+#         new_node.next = head
+#         head = new_node
+#     else:
+#         current_position = 0
+#         current = head
+#         while current.next is not None:
+#           if current_position == position - 1:
+#             new_node = Node(data)
+#             new_node.next = current.next
+#             current.next = new_node
+#             break
+#           else:
+#             current = current.next
+#           current_position += 1
+#         if position > current_position and current.next is None:
+#             current.next = Node (data)
+#     return head
+
+
+# SAVE HUMANITY HACKERRANK TIMED OUT ON SOME EXAMPLES
+
+# # Enter your code here. Read input from STDIN. Print output to STDOUT
+
+# number_of_test_cases = raw_input()
+# number_of_test_cases = int(number_of_test_cases)
+# if number_of_test_cases == 0:
+#     print "No Match!"      
+# for test_case in range(number_of_test_cases):
+#     PV = raw_input()
+#     P,V = PV.split()
+#     answer = []
+#     testln = len(V)
+#     patientln = len(P)
+#     if testln > patientln:
+#         print "No Match"
+#     for i in range(patientln-testln+1):
+#         Psub = P[i:i+testln]
+#         if sum(Psub[i] != V[i] for i in range(len(V)))>=2:
+#             i += 1
+#         else:
+#             answer.append(i)
+#             i +=1     
+#     if len(answer) == 0:
+#         print "No Match!"
+#     else:
+#         string_answer = ""
+#         for item in answer:
+#             string_answer += str(item) + " "
+#         print string_answer
+        
+
+# DELETE A NODE FROM A LINKED LIST
+
+#  def Delete(head, position):
+#     current = head
+#     current_position = 0
+#     if position == 0:
+#         head = current.next
+#         return head
+#     while current.next:
+#         if current_position == position - 1:
+#             current.next = current.next.next
+#             return head
+
+#         else:
+#             current=current.next
+#             current_position += 1   
 
 
 
