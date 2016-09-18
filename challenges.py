@@ -521,7 +521,7 @@ print tower(3)
 #         return head
 #     while current.next:
 #         if current_position == position - 1:
-#             current.next = current.next.next
+#             current.next = cugrrent.next.next
 #             return head
 
 #         else:
