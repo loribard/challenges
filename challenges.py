@@ -530,10 +530,35 @@ print tower(3)
 
 
 
+def flatten_dict_1(d):
+    result = {}
+    agenda = {}
 
+    agenda = d.copy()
+
+    while True:
+        new_agenda = {}
+
+        for (k,v) in agenda.iteritems():
+            if type(v) == int:
+                result[k]= v
+            else:
+
+                for (k2, v2) in v.iteritems():
+                    if type(v2) == int:
+                        result[str(k) + '.' + str(k2)] = v2
+                    else:
+                        new_agenda[str(k) + '.' + str(k2)] = v2
+        if len(new_agenda) == 0:
+            break
+        else:
+            agenda = new_agenda
+    print result
+    return result
 
             
-
+d = {1:2,3:4,5:{6:{7:{8:9}}}}
+flatten_dict_1(d)
 
 
 
