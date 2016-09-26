@@ -563,6 +563,34 @@ flatten_dict_1(d)
 
 
 
+
+
+
+print ""
+print ""
+
+def flatten_dict_recursion(d):
+  
+    for k,v in d.iteritems():
+      
+        if type(v) != int:      
+            
+            new_k = v.keys()[0]
+            k1 = str(k) + "." + str(new_k)
+            d[k1] =  v.values()[0]
+            del d[k]
+            flatten_dict_recursion(d)
+    return d
+
+
+d = {1:2,3:4,5:{6:{7:{8:9}}}}
+print flatten_dict_recursion(d)
+
+
+
+
+
+
           
 
 
