@@ -570,7 +570,8 @@ print ""
 print ""
 
 def flatten_dict_recursion(d):
-  
+
+
     for k,v in d.iteritems():
       
         if type(v) != int:      
@@ -583,7 +584,7 @@ def flatten_dict_recursion(d):
     return d
 
 
-d = {1:2,3:4,5:{6:{7:{8:9}}}}
+d = {1:2,3:4,5:{6:{7:{8:9}}},10:11}
 print flatten_dict_recursion(d)
 
 
